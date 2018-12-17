@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/climate"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/main_recycler"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="10dp"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/main_image"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_alignParentRight="true"
+                android:layout_margin="15dp"
+                android:src="@drawable/cloudy" />
+
+            <TextView
+                android:id="@+id/main_tv_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/main_tv_weather"
+                android:layout_alignLeft="@id/main_tv_weather"
+                android:layout_marginTop="15dp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="Friday"
+                android:textColor="@color/fontColor"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/main_tv_weather"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/main_tv_daraje"
+                android:layout_alignLeft="@id/main_tv_daraje"
+                android:layout_marginTop="15dp"
+                android:text="CLOUDY"
+                android:textColor="@color/fontColor"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/main_tv_daraje"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="35dp"
+                android:text="12 C"
+                android:textColor="@color/fontColor"
+                android:textSize="33sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/main_tv_day"
+                android:layout_alignLeft="@id/main_tv_daraje"
+                android:layout_marginTop="5dp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="tehran"
+                android:textColor="@color/fontColor"
+                android:textSize="22sp" />
+
+        </RelativeLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/main_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="#357ed2"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/Drawer_tv_Exit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="Exit"
+            android:textColor="@color/fontColor" />
+
+        <TextView
+            android:id="@+id/Drawer_tv_Location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="Location"
+            android:textColor="@color/fontColor" />
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.DrawerLayout>
