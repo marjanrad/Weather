@@ -30,20 +30,8 @@ public class LocationActivity extends AppCompatActivity {
 
 
         Hawk.init(getApplicationContext()).build();
-        int radioId = Hawk.get("RADIO_LOCATION");
-        Toast.makeText(this, radioId, Toast.LENGTH_SHORT).show();
-        switch (radioId) {
-            case 1:
-                radioTehran.isChecked();
-                break;
-            case 2:
-                radioIsfahan.isChecked();
-                break;
-            default:
-                Toast.makeText(this, "breake", Toast.LENGTH_SHORT).show();
-                break;
+        //int radioId = Hawk.get("RADIO_LOCATION");
 
-        }
 
 
         //put values to storage
