@@ -41,9 +41,10 @@ public class LocationActivity extends AppCompatActivity {
                 int radioButtonId = radioGroup.getCheckedRadioButtonId();
                 RadioButton radioButton = findViewById(radioButtonId);
                 Hawk.put("LOCATION", radioButton.getText());
+
 //                Hawk.put("RADIO_LOCATION",radioButtonId);
-                int s = (int) radioButton.getTag();
-                Hawk.put("RADIO_LOCATION", s);
+//                int s = (int) radioButton.getTag();
+//                Hawk.put("RADIO_LOCATION", s);
 
             }
         });

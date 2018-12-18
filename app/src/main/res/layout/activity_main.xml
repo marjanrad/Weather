@@ -94,10 +94,17 @@
         android:background="#357ed2"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/wallpapera"
+            android:scaleType="fitXY"/>
+
         <TextView
             android:id="@+id/Drawer_tv_Exit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
             android:text="Exit"
             android:textColor="@color/fontColor" />
@@ -105,6 +112,7 @@
         <TextView
             android:id="@+id/Drawer_tv_Location"
             android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:text="Location"
