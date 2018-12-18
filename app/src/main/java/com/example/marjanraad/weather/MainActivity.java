@@ -8,11 +8,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.orhanobut.hawk.Hawk;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    TextView tvExit , tvLocation ;
+    TextView tvExit , tvLocation , showLocation  ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         init();
+
+        Hawk.init(getApplicationContext()).build();
+        String location=Hawk.get("LOCATION");
+        if (location.isEmpty()){
+            showLocation.setText("isfahan");
+
+        }else {
+            showLocation.setText(location);
+        }
+
 
         //create list for days
         List<String> list = new ArrayList<>();
@@ -55,5 +67,6 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         tvExit=findViewById(R.id.Drawer_tv_Exit);
         tvLocation=findViewById(R.id.Drawer_tv_Location);
+        showLocation=findViewById(R.id.main_tv_location);
     }
 }

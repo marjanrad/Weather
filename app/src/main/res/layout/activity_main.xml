@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/climate"
     android:orientation="vertical"
-    android:padding="5dp"
     tools:context=".MainActivity">
 
     <RelativeLayout
@@ -71,6 +70,7 @@
                 android:layout_alignLeft="@id/main_tv_daraje"
                 android:layout_marginTop="5dp"
                 android:fontFamily="sans-serif-smallcaps"
+                android:id="@+id/main_tv_location"
                 android:text="tehran"
                 android:textColor="@color/fontColor"
                 android:textSize="22sp" />
@@ -82,7 +82,8 @@
             android:id="@+id/main_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true" />
+            android:layout_alignParentBottom="true"
+            android:layout_margin="6dp" />
 
     </RelativeLayout>
 
