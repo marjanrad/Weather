@@ -2,6 +2,7 @@ package com.example.marjanraad.weather;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -14,7 +15,8 @@ public class LocationActivity extends AppCompatActivity {
 
     RadioGroup radioGroup;
     Button btnSet;
-    RadioButton radioTehran, radioIsfahan, radioTabriz, radioFars;
+    RadioButton radioTehran, radioIsfahan, radioTabriz, radiokerman;
+    String selected="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +26,40 @@ public class LocationActivity extends AppCompatActivity {
         radioGroup = findViewById(R.id.location_radio_group);
         btnSet = findViewById(R.id.location_btnSet);
         radioTehran = findViewById(R.id.location_radio_tehran);
-        radioFars = findViewById(R.id.location_radio_fars);
+        radiokerman = findViewById(R.id.location_radio_kerman);
         radioIsfahan = findViewById(R.id.location_radio_isfahan);
         radioTabriz = findViewById(R.id.location_radio_tabriz);
 
-
         Hawk.init(getApplicationContext()).build();
-        //int radioId = Hawk.get("RADIO_LOCATION");
+       // Hawk.put("LOCATION","tehran");
+        String toastCity=Hawk.get("LOCATION","tehran");
+        Toast.makeText(this, toastCity, Toast.LENGTH_SHORT).show();
 
+        //set radio button
+
+            int hawkradio=Hawk.get("radio",1);
+            switch (hawkradio) {
+                case 1:
+                    radioTehran.setChecked(true);
+                    Log.d("loog","1");
+                    break;
+                case 2:
+                    radioIsfahan.setChecked(true);
+                    Log.d("loog","2");
+                    break;
+                case 3:
+                    radioTabriz.setChecked(true);
+                    Log.d("loog","3");
+                    break;
+                case 4:
+                    radiokerman.setChecked(true);
+                    Log.d("loog","4");
+                    break;
+                default:
+                    break;
+
+
+        }
 
 
         //put values to storage
@@ -41,14 +69,43 @@ public class LocationActivity extends AppCompatActivity {
                 int radioButtonId = radioGroup.getCheckedRadioButtonId();
                 RadioButton radioButton = findViewById(radioButtonId);
                 Hawk.put("LOCATION", radioButton.getText());
+                String toastCitys=Hawk.get("LOCATION");
+                Toast.makeText(LocationActivity.this, toastCitys, Toast.LENGTH_SHORT).show();
+                Hawk.put("radio", radioButton.getId());
 
-//                Hawk.put("RADIO_LOCATION",radioButtonId);
-//                int s = (int) radioButton.getTag();
-//                Hawk.put("RADIO_LOCATION", s);
+                //set radio button value in hawk
+                switch (radioButton.getText().toString()) {
+                    case "tehran":
+                        Hawk.put("radio",1);
+                        Log.d("loog","tehran");
+                        break;
+                    case "isfahan":
+                        Hawk.put("radio",2);
+                        Log.d("loog","isfahan");
+                        break;
+                    case "tabriz":
+                        Hawk.put("radio",3);
+                        Log.d("loog","tabriz");
+                        break;
+                    case "kerman":
+                        Hawk.put("radio",4);
+                        Log.d("loog","kerman");
+                        break;
+                    default:
+                        Log.d("loog","defult");
+                        break;
+
+                }
+                selected="1";
+                Log.d("loog","boolean");
+                finish();
 
             }
         });
+
+
     }
+
 
 
 }

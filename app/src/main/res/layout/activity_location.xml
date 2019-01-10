@@ -16,46 +16,41 @@
 
     <RadioGroup
         android:id="@+id/location_radio_group"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp">
 
         <RadioButton
             android:id="@+id/location_radio_tehran"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:tag="1"
-            android:text="Tehran" />
+            android:text="tehran" />
 
         <RadioButton
-            android:id="@+id/location_radio_isfahan"
-            android:layout_width="match_parent"
+            android:id="@+id/location_radio_kerman"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="2"
-            android:text="Isfahan" />
+            android:text="kerman" />
 
         <RadioButton
             android:id="@+id/location_radio_tabriz"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="3"
-            android:text="Tabriz" />
+            android:text="tabriz" />
 
         <RadioButton
-            android:id="@+id/location_radio_fars"
-            android:layout_width="match_parent"
+            android:id="@+id/location_radio_isfahan"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tag="4"
-            android:text="Fars" />
-
+            android:text="isfahan" />
     </RadioGroup>
 
     <Button
         android:id="@+id/location_btnSet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="set" />
+
 
 </LinearLayout>
