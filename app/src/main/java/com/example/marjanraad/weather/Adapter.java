@@ -16,40 +16,39 @@ import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
-    List<ModelsList> listWeather ;
+    List<ModelsList> listWeather;
     Context context;
 
 
-    Adapter(List<ModelsList> listWeather, Context context){
-        this.listWeather =listWeather;
-        this.context=context;
+    Adapter(List<ModelsList> listWeather, Context context) {
+        this.listWeather = listWeather;
+        this.context = context;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v=LayoutInflater.from(parent.getContext()).inflate(R.layout.bachground_list,parent,false);
-        ViewHolder holder=new ViewHolder(v);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.bachground_list, parent, false);
+        ViewHolder holder = new ViewHolder(v);
         return holder;
 
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ModelsList modelsList= listWeather.get(position);
-        String day=modelsList.getDay();
-        String date=modelsList.getDate();
-        String low=modelsList.getLow();
-        String high=modelsList.getHigh();
-        String text=modelsList.getText();
+        ModelsList modelsList = listWeather.get(position);
+        String day = modelsList.getDay();
+        String date = modelsList.getDate();
+        String low = modelsList.getLow();
+        String high = modelsList.getHigh();
+        String text = modelsList.getText();
 
         holder.day.setText(day);
         holder.daraje.setText(low);
 
         Hawk.init(context).build();
 
-            Hawk.put("DAY",day);
-
+        Hawk.put("DAY", day);
 
     }
 
@@ -71,14 +70,20 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(itemView.getContext(),ShowLocationNextDay.class);
+                    Intent intent = new Intent(itemView.getContext(), ShowLocationNextDay.class);
 
-                 //   intent.putExtra(listWeather.get)
+                    intent.putExtra("DAY",listWeather.get(getAdapterPosition()).getDay());
+                    intent.putExtra("DATE",listWeather.get(getAdapterPosition()).getDate());
+                    intent.putExtra("LOW",listWeather.get(getAdapterPosition()).getLow());
+                    intent.putExtra("TEXT",listWeather.get(getAdapterPosition()).getText());
+                    intent.putExtra("HIGH",listWeather.get(getAdapterPosition()).getHigh());
+
                     itemView.getContext().startActivities(new Intent[]{intent});
 
                 }
             });
 
         }
+
     }
 }

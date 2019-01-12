@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //Create list
     private void initList(Weather api) {
         List<Forecast> forecasts = api.getResult().getForecast();
         modelsLists = new ArrayList<>();
