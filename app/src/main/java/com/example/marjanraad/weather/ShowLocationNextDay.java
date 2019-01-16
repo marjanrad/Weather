@@ -17,6 +17,9 @@ public class ShowLocationNextDay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_location_next_day);
 
+
+        Hawk.init(getApplicationContext()).build();
+
         init();
 
         Intent intent = getIntent();
@@ -25,8 +28,11 @@ public class ShowLocationNextDay extends AppCompatActivity {
         String low = intent.getStringExtra("LOW");
         String high = intent.getStringExtra("HIGH");
         String textWeather = intent.getStringExtra("TEXT");
+        String city= Hawk.get("LOCATION");
 
 
+
+        // set names day
         switch (days) {
             case "Sat":
                 day.setText("Saturday");
@@ -58,6 +64,7 @@ public class ShowLocationNextDay extends AppCompatActivity {
         text.setText(textWeather);
         showDate.setText(date);
         relativ.setBackgroundResource(R.drawable.snow);
+        location.setText(city);
 
 
     }

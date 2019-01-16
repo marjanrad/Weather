@@ -1,5 +1,6 @@
 package com.example.marjanraad.weather;
 
+import android.app.UiAutomation;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -7,18 +8,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.orhanobut.hawk.Hawk;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     List<ModelsList> listWeather;
     Context context;
-
+    private GetView getView;
 
     Adapter(List<ModelsList> listWeather, Context context) {
         this.listWeather = listWeather;
@@ -36,6 +37,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+        if (getView != null){
+            getView.items(holder.itemView , position);
+        }
+
         ModelsList modelsList = listWeather.get(position);
         String day = modelsList.getDay();
         String date = modelsList.getDate();
@@ -43,13 +49,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         String high = modelsList.getHigh();
         String text = modelsList.getText();
 
+        int convertLow=convert(Integer.valueOf(low));
         holder.day.setText(day);
-        holder.daraje.setText(low);
+        holder.temp.setText(convertLow +"");
 
         Hawk.init(context).build();
 
         Hawk.put("DAY", day);
 
+    }
+
+    public void getItems(GetView getView){
+        this.getView = getView;
     }
 
     @Override
@@ -58,19 +69,19 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView daraje, day;
+        TextView temp, day;
 
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
 
-            daraje = itemView.findViewById(R.id.backgroundList_daraje);
+            temp = itemView.findViewById(R.id.backgroundList_daraje);
             day = itemView.findViewById(R.id.backgroundList_day);
 
             //set onclick
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(itemView.getContext(), ShowLocationNextDay.class);
+                    Intent intent = new Intent(itemView.getContext(), MainActivity.class);
 
                     intent.putExtra("DAY",listWeather.get(getAdapterPosition()).getDay());
                     intent.putExtra("DATE",listWeather.get(getAdapterPosition()).getDate());
@@ -80,10 +91,20 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
                     itemView.getContext().startActivities(new Intent[]{intent});
 
+
                 }
             });
 
         }
 
     }
+
+    public interface GetView{
+        void items (View view , int position);
+    }
+    private int convert(int f) {
+        int i = (int) ((f - 32) / 1.8);
+        return i;
+    }
+
 }

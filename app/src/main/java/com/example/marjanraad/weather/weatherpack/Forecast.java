@@ -6,40 +6,24 @@ import com.google.gson.annotations.SerializedName;
 
 public class Forecast {
 
-    @SerializedName("code")
-    @Expose
-    private String code;
-    @SerializedName("date")
-    @Expose
-    private String date;
     @SerializedName("day")
     @Expose
     private String day;
-    @SerializedName("high")
+    @SerializedName("date")
     @Expose
-    private String high;
+    private Integer date;
     @SerializedName("low")
     @Expose
-    private String low;
+    private Integer low;
+    @SerializedName("high")
+    @Expose
+    private Integer high;
     @SerializedName("text")
     @Expose
     private String text;
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
+    @SerializedName("code")
+    @Expose
+    private Integer code;
 
     public String getDay() {
         return day;
@@ -49,20 +33,28 @@ public class Forecast {
         this.day = day;
     }
 
-    public String getHigh() {
-        return high;
+    public Integer getDate() {
+        return date;
     }
 
-    public void setHigh(String high) {
-        this.high = high;
+    public void setDate(Integer date) {
+        this.date = date;
     }
 
-    public String getLow() {
+    public Integer getLow() {
         return low;
     }
 
-    public void setLow(String low) {
+    public void setLow(Integer low) {
         this.low = low;
+    }
+
+    public Integer getHigh() {
+        return high;
+    }
+
+    public void setHigh(Integer high) {
+        this.high = high;
     }
 
     public String getText() {
@@ -71,6 +63,14 @@ public class Forecast {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
 }

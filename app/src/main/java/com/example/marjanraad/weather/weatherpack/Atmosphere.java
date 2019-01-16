@@ -8,47 +8,47 @@ public class Atmosphere {
 
     @SerializedName("humidity")
     @Expose
-    private String humidity;
-    @SerializedName("pressure")
-    @Expose
-    private String pressure;
-    @SerializedName("rising")
-    @Expose
-    private String rising;
+    private float humidity;
     @SerializedName("visibility")
     @Expose
-    private String visibility;
+    private float visibility;
+    @SerializedName("pressure")
+    @Expose
+    private Double pressure;
+    @SerializedName("rising")
+    @Expose
+    private float rising;
 
-    public String getHumidity() {
+    public float getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(String humidity) {
+    public void setHumidity(Integer humidity) {
         this.humidity = humidity;
     }
 
-    public String getPressure() {
-        return pressure;
-    }
-
-    public void setPressure(String pressure) {
-        this.pressure = pressure;
-    }
-
-    public String getRising() {
-        return rising;
-    }
-
-    public void setRising(String rising) {
-        this.rising = rising;
-    }
-
-    public String getVisibility() {
+    public float getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(String visibility) {
+    public void setVisibility(Integer visibility) {
         this.visibility = visibility;
+    }
+
+    public Double getPressure() {
+        return pressure;
+    }
+
+    public void setPressure(Double pressure) {
+        this.pressure = pressure;
+    }
+
+    public float getRising() {
+        return rising;
+    }
+
+    public void setRising(Integer rising) {
+        this.rising = rising;
     }
 
 }

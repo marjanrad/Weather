@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/dl"
     android:background="@drawable/climate"
     android:orientation="vertical"
+    tools:openDrawer="start"
     tools:context=".MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:id="@+id/main_relative"
         android:layout_height="match_parent">
 
         <RelativeLayout
@@ -20,58 +23,47 @@
             android:layout_marginBottom="10dp"
             android:padding="10dp">
 
-            <ImageView
-                android:id="@+id/main_image"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_alignParentRight="true"
-                android:layout_margin="15dp"
-                android:src="@drawable/cloudy" />
 
             <TextView
                 android:id="@+id/main_tv_day"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/main_tv_weather"
-                android:layout_alignLeft="@id/main_tv_weather"
+                android:layout_below="@id/main_tv_text"
+                android:layout_alignLeft="@id/main_tv_text"
                 android:layout_marginTop="15dp"
                 android:fontFamily="sans-serif-smallcaps"
-                android:text="Friday"
                 android:textColor="@color/fontColor"
                 android:textSize="22sp" />
 
             <TextView
-                android:id="@+id/main_tv_weather"
+                android:id="@+id/main_tv_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/main_tv_daraje"
-                android:layout_alignLeft="@id/main_tv_daraje"
+                android:layout_below="@id/main_tv_temp"
+                android:layout_alignLeft="@id/main_tv_temp"
                 android:layout_marginTop="15dp"
-                android:text="CLOUDY"
                 android:textColor="@color/fontColor"
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
 
             <TextView
-                android:id="@+id/main_tv_daraje"
+                android:id="@+id/main_tv_temp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="35dp"
-                android:text="12 C"
                 android:textColor="@color/fontColor"
                 android:textSize="33sp" />
 
             <TextView
+                android:id="@+id/main_tv_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/main_tv_day"
-                android:layout_alignLeft="@id/main_tv_daraje"
+                android:layout_alignLeft="@id/main_tv_temp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="sans-serif-smallcaps"
-                android:id="@+id/main_tv_location"
-                android:text="tehran"
                 android:textColor="@color/fontColor"
                 android:textSize="22sp" />
 
@@ -97,24 +89,24 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:src="@drawable/wallpapera"
-            android:scaleType="fitXY"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/wallpapera" />
 
         <TextView
             android:id="@+id/Drawer_tv_Exit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
             android:text="Exit"
             android:textColor="@color/fontColor" />
 
         <TextView
             android:id="@+id/Drawer_tv_Location"
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
             android:text="Location"
             android:textColor="@color/fontColor" />
 

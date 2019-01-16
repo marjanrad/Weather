@@ -8,35 +8,35 @@ public class Wind {
 
     @SerializedName("chill")
     @Expose
-    private String chill;
+    private Integer chill;
     @SerializedName("direction")
     @Expose
-    private String direction;
+    private Integer direction;
     @SerializedName("speed")
     @Expose
-    private String speed;
+    private Double speed;
 
-    public String getChill() {
+    public Integer getChill() {
         return chill;
     }
 
-    public void setChill(String chill) {
+    public void setChill(Integer chill) {
         this.chill = chill;
     }
 
-    public String getDirection() {
+    public Integer getDirection() {
         return direction;
     }
 
-    public void setDirection(String direction) {
+    public void setDirection(Integer direction) {
         this.direction = direction;
     }
 
-    public String getSpeed() {
+    public Double getSpeed() {
         return speed;
     }
 
-    public void setSpeed(String speed) {
+    public void setSpeed(Double speed) {
         this.speed = speed;
     }
 
