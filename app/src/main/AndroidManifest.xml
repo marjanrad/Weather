@@ -18,7 +18,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".LocationActivity" />
-        <activity android:name=".ShowLocationNextDay"></activity>
     </application>
 
 </manifest>

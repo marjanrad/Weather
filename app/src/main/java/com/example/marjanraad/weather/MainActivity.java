@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
                     initList(weather);
                     String text = weather.getResult().getCondition().getText();
                     showText.setText(text);
+                    setSetBackgroundDay(text);
                     int temp = convert(weather.getResult().getCondition().getTemperature());
                     showTemp.setText(temp + " c");
                     String city = weather.getResult().getLocation().getCity();
@@ -198,31 +199,94 @@ public class MainActivity extends AppCompatActivity {
 
     public void setSetBackgroundDay(String text) {
 
-        if (text.equals("Cloudy")|| text.equals("Partly Cloudy")){
-            setBackground.setBackgroundResource(R.drawable.freezing);
-        }else if (text.equals("Sunny")){
+//      if (text.equals("Sunny") || text.equals("Mostly Sunny")){
+//            setBackground.setBackgroundResource(R.drawable.sunny);
+//
+//        }else if (text.equals("Snow")||text.equals("Snow flurries")||text.equals("light snow showers")|| text.equals("blowing snow")){
+//            setBackground.setBackgroundResource(R.drawable.snow);
+//
+//        }else if (text.equals("Mixed rain and snow") || text.equals("Mixed rain and sleet")|| text.equals("freezing rain")||text.equals("Rain")){
+//            setBackground.setBackgroundResource(R.drawable.ruin);
+//
+//        }else if (text.equals("freezing drizzle")||text.equals("cold")){
+//            setBackground.setBackgroundResource(R.drawable.freezing);
+//        }
+//        else if (text.equals("showers")){
+//            setBackground.setBackgroundResource(R.drawable.ruin);
+//        }
+//        else if (text.equals("hail")){
+//            setBackground.setBackgroundResource(R.drawable.hail);
+//        }
+//        else if (text.equals("windy")){
+//            setBackground.setBackgroundResource(R.drawable.wind);
+//        }
+//        else if (text.equals("hot")){
+//            setBackground.setBackgroundResource(R.drawable.hot);
+//        }
+//        else if (text.equals("heavy snow")){
+//            setBackground.setBackgroundResource(R.drawable.snow);
+//        }
+
+        switch (text) {
+            case "Sunny":
+                setBackground.setBackgroundResource(R.drawable.sunny);
+                break;
+            case "Mostly Sunny":
+                setBackground.setBackgroundResource(R.drawable.sunny);
+                break;
+            case "Snow":
+                setBackground.setBackgroundResource(R.drawable.snow);
+                break;
+            case "Snow Flurries":
+                setBackground.setBackgroundResource(R.drawable.snow);
+                break;
+            case "Light Snow Showers":
+                setBackground.setBackgroundResource(R.drawable.snow);
+                break;
+            case "Blowing Snow":
+                setBackground.setBackgroundResource(R.drawable.snow);
+                break;
+            case "Mixed Rain And Snow":
+                setBackground.setBackgroundResource(R.drawable.rainyys);
+                break;
+            case "Mixed Rain And Sleet":
+                setBackground.setBackgroundResource(R.drawable.rainyys);
+                break;
+            case "Freezing Rain":
+                setBackground.setBackgroundResource(R.drawable.rainyys);
+                break;
+            case "Rain":
+                setBackground.setBackgroundResource(R.drawable.rainyys);
+                break;
+            case "Cold":
+                setBackground.setBackgroundResource(R.drawable.freezingg);
+                break;
+            case "Freezing Drizzle":
+                setBackground.setBackgroundResource(R.drawable.freezingg);
+                break;
+            case "Showers":
+                setBackground.setBackgroundResource(R.drawable.rainyys);
+                break;
+            case "Hail":
+                setBackground.setBackgroundResource(R.drawable.hailll);
+                break;
+            case "Windy":
+                setBackground.setBackgroundResource(R.drawable.windyy);
+                break;
+            case "Hot":
+                setBackground.setBackgroundResource(R.drawable.hott);
+                break;
+            case "Heavy Snow":
+                setBackground.setBackgroundResource(R.drawable.snow);
+                break;
+            case "Partly Cloudy":
+                setBackground.setBackgroundResource(R.drawable.climents);
+                break;
+            default:
+                break;
+
 
         }
-
-//        switch (text) {
-//            case "Sunny":
-//                setBackground.setBackgroundResource(R.drawable.sunny);
-//                break;
-//            case "Cloudy":
-//                setBackground.setBackgroundResource(R.drawable.cloud);
-//                break;
-//            case "Cold":
-//                setBackground.setBackgroundResource(R.drawable.freezing);
-//                break;
-//            case "Hail":
-//                setBackground.setBackgroundResource(R.drawable.hail);
-//                break;
-//            case "Partly Cloudy":
-//                setBackground.setBackgroundResource(R.drawable.cloud);
-//                break;
-//            default:
-//                break;
-//        }
 
 
     }

@@ -1,6 +1,5 @@
 package com.example.marjanraad.weather;
 
-import android.app.UiAutomation;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -8,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.orhanobut.hawk.Hawk;
@@ -51,7 +49,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
         int convertLow=convert(Integer.valueOf(low));
         holder.day.setText(day);
-        holder.temp.setText(convertLow +"");
+        holder.temp.setText(convertLow +" c");
+        holder.text.setText(text);
 
         Hawk.init(context).build();
 
@@ -69,13 +68,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView temp, day;
+        TextView temp, day , text;
 
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
 
-            temp = itemView.findViewById(R.id.backgroundList_daraje);
+            temp = itemView.findViewById(R.id.backgroundList_temp);
             day = itemView.findViewById(R.id.backgroundList_day);
+            text=itemView.findViewById(R.id.backgroundList_text);
 
             //set onclick
             itemView.setOnClickListener(new View.OnClickListener() {
