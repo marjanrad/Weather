@@ -66,7 +66,7 @@ public class LocationActivity extends AppCompatActivity {
                     case "tehran":
                         Hawk.put("radio", 1);
                         break;
-                    case "isfahan":
+                    case "esfahan":
                         Hawk.put("radio", 2);
                         break;
                     case "tabriz":

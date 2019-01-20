@@ -7,7 +7,7 @@
     android:id="@+id/dl"
     android:background="@drawable/climate"
     android:orientation="vertical"
-    tools:openDrawer="start"
+
     tools:context=".MainActivity">
 
     <RelativeLayout
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/main_tv_text"
                 android:layout_alignLeft="@id/main_tv_text"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="sans-serif-smallcaps"
                 android:textColor="@color/fontColor"
                 android:textSize="22sp" />
@@ -41,9 +41,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/main_tv_temp"
                 android:layout_alignLeft="@id/main_tv_temp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="8dp"
                 android:textColor="@color/fontColor"
-                android:textSize="28sp"
+                android:textSize="26sp"
                 android:textStyle="bold" />
 
 
@@ -52,9 +52,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="55dp"
                 android:textColor="@color/fontColor"
-                android:textSize="33sp" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/main_tv_location"

@@ -1,20 +1,22 @@
 package com.example.marjanraad.weather;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LayoutAnimationController;
+import android.view.animation.TranslateAnimation;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.marjanraad.weather.weatherpack.Forecast;
 import com.example.marjanraad.weather.weatherpack.Weather;
@@ -99,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                     initList(weather);
                     String text = weather.getResult().getCondition().getText();
                     showText.setText(text);
-                    setSetBackgroundDay(text);
+                    setBackgroundDay(text);
                     int temp = convert(weather.getResult().getCondition().getTemperature());
                     showTemp.setText(temp + " c");
                     String city = weather.getResult().getLocation().getCity();
@@ -139,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
         final Adapter adapter = new Adapter(modelsLists, MainActivity.this);
 
-        RecyclerView recyclerView = findViewById(R.id.main_recycler);
+        final RecyclerView recyclerView = findViewById(R.id.main_recycler);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
         adapter.getItems(new Adapter.GetView() {
@@ -158,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
 
                         showTemp.setText(lowValue + " c _ " + highValue + " c ");
                         showText.setText(text);
-                        setSetBackgroundDay(text);
+                        setBackgroundDay(text);
 
                         // set names day
                         switch (day) {
@@ -183,10 +185,19 @@ public class MainActivity extends AppCompatActivity {
                             case "Fri":
                                 showDay.setText("Friday");
                                 break;
+
                             default:
                                 break;
 
                         }
+
+                        AnimationSet set = new AnimationSet(true);
+
+                        // Fade in animation
+                        Animation fadeIn = new AlphaAnimation(0.0f, 1.0f);
+                        fadeIn.setDuration(400);
+                        fadeIn.setFillAfter(true);
+                        set.addAnimation(fadeIn);
 
 
                     }
@@ -197,35 +208,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void setSetBackgroundDay(String text) {
+    public void setBackgroundDay(String text) {
 
-//      if (text.equals("Sunny") || text.equals("Mostly Sunny")){
-//            setBackground.setBackgroundResource(R.drawable.sunny);
-//
-//        }else if (text.equals("Snow")||text.equals("Snow flurries")||text.equals("light snow showers")|| text.equals("blowing snow")){
-//            setBackground.setBackgroundResource(R.drawable.snow);
-//
-//        }else if (text.equals("Mixed rain and snow") || text.equals("Mixed rain and sleet")|| text.equals("freezing rain")||text.equals("Rain")){
-//            setBackground.setBackgroundResource(R.drawable.ruin);
-//
-//        }else if (text.equals("freezing drizzle")||text.equals("cold")){
-//            setBackground.setBackgroundResource(R.drawable.freezing);
-//        }
-//        else if (text.equals("showers")){
-//            setBackground.setBackgroundResource(R.drawable.ruin);
-//        }
-//        else if (text.equals("hail")){
-//            setBackground.setBackgroundResource(R.drawable.hail);
-//        }
-//        else if (text.equals("windy")){
-//            setBackground.setBackgroundResource(R.drawable.wind);
-//        }
-//        else if (text.equals("hot")){
-//            setBackground.setBackgroundResource(R.drawable.hot);
-//        }
-//        else if (text.equals("heavy snow")){
-//            setBackground.setBackgroundResource(R.drawable.snow);
-//        }
 
         switch (text) {
             case "Sunny":
@@ -265,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
                 setBackground.setBackgroundResource(R.drawable.freezingg);
                 break;
             case "Showers":
-                setBackground.setBackgroundResource(R.drawable.rainyys);
+                setBackground.setBackgroundResource(R.drawable.showersss);
                 break;
             case "Hail":
                 setBackground.setBackgroundResource(R.drawable.hailll);
@@ -280,11 +264,22 @@ public class MainActivity extends AppCompatActivity {
                 setBackground.setBackgroundResource(R.drawable.snow);
                 break;
             case "Partly Cloudy":
-                setBackground.setBackgroundResource(R.drawable.climents);
+                setBackground.setBackgroundResource(R.drawable.partlycloudy);
+                break;
+            case "Cloudy":
+                setBackground.setBackgroundResource(R.drawable.ssscloudy);
+                break;
+            case "Mostly Cloudy":
+                setBackground.setBackgroundResource(R.drawable.mostlycloudy);
+                break;
+            case "Scattered Showers":
+                setBackground.setBackgroundResource(R.drawable.showersss);
+                break;
+            case "Clear":
+                setBackground.setBackgroundResource(R.drawable.clearsky);
                 break;
             default:
                 break;
-
 
         }
 
@@ -316,4 +311,5 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
 }

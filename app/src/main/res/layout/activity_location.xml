@@ -4,52 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/locationbg"
     android:orientation="vertical"
-    android:padding="30dp"
+    android:padding="35dp"
     tools:context=".LocationActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:text="Select Location"
-        android:textSize="18sp" />
+        android:textColor="@color/fontColor"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <RadioGroup
         android:id="@+id/location_radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="15dp"
+        android:padding="15dp">
 
         <RadioButton
             android:id="@+id/location_radio_tehran"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="tehran" />
+            android:text="tehran"
+            android:textColor="@color/fontColor"
+            android:textSize="18sp" />
 
         <RadioButton
             android:id="@+id/location_radio_kerman"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="kerman" />
+            android:layout_marginTop="3dp"
+            android:text="kerman"
+            android:textColor="@color/fontColor"
+            android:textSize="18sp" />
 
         <RadioButton
             android:id="@+id/location_radio_tabriz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="tabriz" />
+            android:layout_marginTop="3dp"
+            android:text="tabriz"
+            android:textColor="@color/fontColor"
+            android:textSize="18sp" />
 
         <RadioButton
             android:id="@+id/location_radio_isfahan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="isfahan" />
+            android:layout_marginTop="3dp"
+            android:text="esfahan"
+            android:textColor="@color/fontColor"
+            android:textSize="18sp" />
     </RadioGroup>
 
     <Button
         android:id="@+id/location_btnSet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
+        style="@style/Base.TextAppearance.AppCompat.Widget.Button.Colored"
         android:text="set" />
 
 
